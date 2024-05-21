@@ -12,7 +12,7 @@ ssh [brukernavn]@[ip-adresse]
 ### kjøre shell scriptet
 sette ting opp
 ```bash
-git pull https://github.com/VetleViking/UbuntuShell
+git clone https://github.com/VetleViking/UbuntuShell
 cd UbuntuShell
 chmod +x setup.sh
 ```
