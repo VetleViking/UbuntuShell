@@ -6,6 +6,8 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 
+$PART=$1
+
 # Check if part is given
 if [ -z "$PART" ]; then
     echo "Usage: $0 <part>"
