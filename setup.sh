@@ -101,7 +101,7 @@ if [ "$PART" = "ssh" ] || [ "$PART" = "both" ]; then
   sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' "$SSHD_CONFIG"
   sed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' "$SSHD_CONFIG"
 
-  systemctl restart sshd
+  systemctl restart ssh
 fi
 
 if [ "$PART" = "net" ] || [ "$PART" = "both" ]; then
