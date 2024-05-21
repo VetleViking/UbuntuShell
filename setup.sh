@@ -7,11 +7,11 @@ fi
 
 # Update before running
 STATIC_IP="enter ip here"
+GATEWAY="enter gateway here"
 SUBNET_MASK="enter subnet mask here"
 
 # probably don't need to change these
 INTERFACE="eth0"
-GATEWAY="192.168.1.1"
 DNS1="8.8.8.8"
 DNS2="8.8.4.4"
 
@@ -29,20 +29,18 @@ echo "Writing new netplan configuration"
 
 cat <<EOL > $NETPLAN_CONFIG
 network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    $INTERFACE:
-      addresses:
-        - $STATIC_IP/$SUBNET_MASK
-      routes:
-        - to: default
-        via: $GATEWAY
-      nameservers:
-        search: []
-        addresses:
-          - $DNS1
-          - $DNS2
+    ethernets:
+        eth0:
+          addresses:
+             - $STATIC_IP/$SUBNET_MASK
+          nameservers:
+            addresses: [4.2.2.2, 8.8.8.8]
+          routes:
+            - to: default
+              via: $GATEWAY
+
+          dhcp4: true
+    version: 2
 EOL
 
 echo "Applying new netplan configuration"
