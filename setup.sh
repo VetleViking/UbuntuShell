@@ -15,8 +15,8 @@ INTERFACE="eth0"
 DNS1="8.8.8.8"
 DNS2="8.8.4.4"
 
-NETPLAN_CONFIG="/etc/netplan/01-netcfg.yaml"
-BACKUP_CONFIG="/etc/netplan/01-netcfg.yaml.bak"
+NETPLAN_CONFIG="/etc/netplan/50-cloud-init.yaml"
+BACKUP_CONFIG="/etc/netplan/50-cloud-init.yaml.bak"
 
 if [ -f "$NETPLAN_CONFIG" ]; then
   echo "Backing up current netplan configuration to $BACKUP_CONFIG"
