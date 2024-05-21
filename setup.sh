@@ -6,8 +6,11 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Update before running
+STATIC_IP="enter ip here"
+SUBNET_MASK="enter subnet mask here"
+
+# probably don't need to change these
 INTERFACE="eth0"
-STATIC_IP="192.168.1.100"
 GATEWAY="192.168.1.1"
 DNS1="8.8.8.8"
 DNS2="8.8.4.4"
@@ -31,7 +34,7 @@ network:
     $INTERFACE:
       dhcp4: no
       addresses:
-        - $STATIC_IP/24
+        - $STATIC_IP/$SUBNET_MASK
       gateway4: $GATEWAY
       nameservers:
         addresses:
