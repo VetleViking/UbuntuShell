@@ -66,6 +66,8 @@ EOL
 
   # Apply the new netplan configuration
   netplan apply
+
+  echo "Network configuration complete for $STATIC_IP/$SUBNET_MASK" 
 fi
 
 if [ "$PART" = "ssh" ] || [ "$PART" = "both" ]; then
@@ -103,14 +105,9 @@ if [ "$PART" = "ssh" ] || [ "$PART" = "both" ]; then
 
   echo "Restarting SSH service"
   systemctl restart ssh
-fi
-
-if [ "$PART" = "net" ] || [ "$PART" = "both" ]; then
-  echo "Network configuration complete for $STATIC_IP"
-fi
-
-if [ "$PART" = "ssh" ] || [ "$PART" = "both" ]; then
   echo "SSH configuration complete for $USER_NAME"
 fi
+
+echo "Setup complete"
 
 exit 0
