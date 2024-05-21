@@ -101,6 +101,7 @@ if [ "$PART" = "ssh" ] || [ "$PART" = "both" ]; then
   sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' "$SSHD_CONFIG"
   sed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' "$SSHD_CONFIG"
 
+  echo "Restarting SSH service"
   systemctl restart ssh
 fi
 
