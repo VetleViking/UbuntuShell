@@ -30,13 +30,16 @@ echo "Writing new netplan configuration"
 cat <<EOL > $NETPLAN_CONFIG
 network:
   version: 2
+  renderer: networkd
   ethernets:
     $INTERFACE:
-      dhcp4: no
       addresses:
         - $STATIC_IP/$SUBNET_MASK
-      gateway4: $GATEWAY
+      routes:
+        - to: default
+        via: $GATEWAY
       nameservers:
+        search: []
         addresses:
           - $DNS1
           - $DNS2
