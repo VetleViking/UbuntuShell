@@ -30,7 +30,7 @@ sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' "$SSHD_CONFIG
 sed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' "$SSHD_CONFIG"
 sed -i 's/^#PasswordAuthentication no/PasswordAuthentication no/' "$SSHD_CONFIG"
 
-systemctl restart sshd
+systemctl restart ssh
 
 echo "SSH configuration complete for $USER_NAME"
 
